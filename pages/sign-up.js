@@ -4,11 +4,16 @@ import { auth, googleAuthProvider } from '@lib/firebase';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
 export default function Signin() {
   const { user, loading } = useContext(UserContext);
 
   const router = useRouter();
+
+  // if (user) {
+  //   router.push('/dashboard');
+  // }
 
   return (
     <main>
@@ -17,8 +22,8 @@ export default function Signin() {
       ) : (
         !user && (
           <>
-            <SignInButton />
-            <Login />
+            <SignUpButton />
+            <SignUp />
           </>
         )
       )}
@@ -26,16 +31,16 @@ export default function Signin() {
   );
 }
 
-function SignInButton() {
-  const signInWithGoogle = async () => {
+function SignUpButton() {
+  const signUpWithGoogle = async () => {
     await auth.signInWithPopup(googleAuthProvider);
   };
-  return <button onClick={signInWithGoogle}>Sign In with google</button>;
+  return <button onClick={signUpWithGoogle}>Sign Up with google</button>;
   // Add Try Catch to handle error
 }
 
-const Login = () => {
-  const { user } = useContext(UserContext);
+const SignUp = () => {
+  // const { user } = useContext(UserContext);
 
   const [formData, setFormData] = useState({
     email: '',
@@ -44,25 +49,28 @@ const Login = () => {
 
   const { email, password } = formData;
 
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
     e.preventDefault();
-    login(email, password);
+    createUserWithEmailAndPassword(email, password);
   };
 
-  useEffect(() => {
-    if (user) {
-      router.push('/dashboard');
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user) {
+  //     router.push('/dashboard');
+  //   }
+  // }, [user]);
 
   return (
     <>
-      <h1 className="large text-primary">Sign In</h1>
+      <h1 className="large text-primary">Sign Up</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Sign Into Your Account
+        <i className="fas fa-user" /> Create new account
       </p>
       <form className="form" onSubmit={onSubmit}>
         <div className="form-group">
@@ -85,10 +93,10 @@ const Login = () => {
             minLength="6"
           />
         </div>
-        <input type="submit" className="btn btn-primary" value="Login" />
+        <input type="submit" className="btn btn-primary" value="Sign Up" />
       </form>
       <p className="my-1">
-        Don't have an account? <Link href="/sign-up">Sign Up</Link>
+        Already have an account? <Link href="/sign-in">Sign In</Link>
       </p>
     </>
   );

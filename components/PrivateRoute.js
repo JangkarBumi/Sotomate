@@ -11,6 +11,11 @@ const PrivateRoute = (props) => {
     if (!user) {
       router.push('sign-in');
     }
+    // console.log(!user, 'test');
+    // console.log(user && !user.emailVerified, 'comb');
+    if (user && user.emailVerified) {
+      router.push('email-verification');
+    }
   }, [user]);
 
   return loading ? <Loader show /> : user && props.children;

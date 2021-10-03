@@ -14,10 +14,14 @@ export default function DashboardPage(props) {
 
 function Dashboard() {
   const { user } = useContext(UserContext);
+
+  const { email, emailVerified } = user;
   return (
     <div>
       <h1>Dashboard</h1>
-      {user.email}
+      {email}
+
+      <p>Verified : {emailVerified.toString()}</p>
     </div>
   );
 }
