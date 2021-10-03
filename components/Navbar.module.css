@@ -1,0 +1,12 @@
+.navbar {
+  background-color: tomato;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar ul li {
+  list-style: none;
+}
