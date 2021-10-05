@@ -18,13 +18,10 @@ function MyApp({ Component, pageProps }) {
     if (user && !user.emailVerified) {
       router.push('/email-verification');
     }
-    // router.events.on('routeChangeComplete', () => {
-    //   console.log('route change routeChangeComplete');
-    // });
     if (user && user.emailVerified) {
       router.push('/dashboard');
     }
-  }, [user, router.events]);
+  }, [user]);
 
   return (
     <UserContext.Provider value={userData}>

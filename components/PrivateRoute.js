@@ -6,14 +6,11 @@ import { useContext, useEffect } from 'react';
 const PrivateRoute = (props) => {
   const router = useRouter();
   const { user, loading } = useContext(UserContext);
-
   useEffect(() => {
     if (!user) {
       router.push('sign-in');
     }
-    // console.log(!user, 'test');
-    // console.log(user && !user.emailVerified, 'comb');
-    if (user && user.emailVerified) {
+    if (user && !user.emailVerified) {
       router.push('email-verification');
     }
   }, [user]);
