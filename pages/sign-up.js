@@ -3,7 +3,7 @@ import { UserContext } from '@lib/context';
 import { auth, googleAuthProvider } from '@lib/firebase';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
 export default function Signin() {
@@ -50,7 +50,7 @@ const SignUp = () => {
   const { email, password } = formData;
 
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification :true});
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
