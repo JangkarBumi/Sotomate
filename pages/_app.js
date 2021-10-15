@@ -18,9 +18,9 @@ function MyApp({ Component, pageProps }) {
     if (user && !user.emailVerified) {
       router.push('/email-verification');
     }
-    if (user && user.emailVerified) {
-      router.push('/dashboard');
-    }
+    // if (user && user.emailVerified) {
+    //   router.push('/dashboard');
+    // }
   }, [user]);
 
   return (
