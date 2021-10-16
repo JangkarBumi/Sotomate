@@ -1,8 +1,9 @@
+import Footer from '@components/Footer/Footer';
+import Navbar from '@components/Navbar/Navbar';
 import { UserContext } from '@lib/context';
 import { useUserData } from '@lib/hooks';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import Navbar from '../components/Navbar';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }) {
     <UserContext.Provider value={userData}>
       <Navbar />
       <Component {...pageProps} />
+      <Footer/>
     </UserContext.Provider>
   );
 }

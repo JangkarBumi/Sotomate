@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useContext, useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import Head from 'next/head';
 
 export default function Signin() {
   const { user, loading } = useContext(UserContext);
@@ -68,6 +69,10 @@ const SignUp = () => {
 
   return (
     <>
+      <Head>
+        <title>Sign Up | Sotomate</title>
+        <meta property="og:title" content="Sign Up" />
+      </Head>
       <h1 className="large text-primary">Sign Up</h1>
       <p className="lead">
         <i className="fas fa-user" /> Create new account

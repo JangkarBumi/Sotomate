@@ -1,6 +1,12 @@
+import Head from 'next/head';
+
 export default function Home() {
   return (
     <div>
+      <Head>
+        <title>Sotomate - Social Marketing Automation Tool</title>
+        <meta property="og:title" content="My page title" />
+      </Head>
       {/* <Loader show/>
        */}
 

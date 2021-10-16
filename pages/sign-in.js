@@ -4,6 +4,7 @@ import { auth, googleAuthProvider } from '@lib/firebase';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
+import Head from 'next/head';
 
 export default function Signin() {
   const { user, loading } = useContext(UserContext);
@@ -12,6 +13,11 @@ export default function Signin() {
 
   return (
     <main>
+      <Head>
+        <title>Sign In | Sotomate</title>
+        <meta property="og:title" content="Sign In" />
+      </Head>
+
       {loading ? (
         <Loader show />
       ) : (
