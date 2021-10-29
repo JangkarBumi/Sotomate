@@ -5,6 +5,7 @@ import { useUserData } from '@lib/hooks';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import '../styles/globals.css';
+import '../styles/reset.css'
 
 function MyApp({ Component, pageProps }) {
   const userData = useUserData();

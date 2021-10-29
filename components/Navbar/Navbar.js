@@ -16,13 +16,23 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={[styles.navbar]}>
       <ul>
-        <li>
           <Link href="/">
-            <button>HOME</button>
+            <h1>Sotomate</h1>
           </Link>
-        </li>
+
+        {/* <ul> */}
+          <li>
+            <span>Pricing</span>
+          </li>
+          <li>
+            <span>Features</span>
+          </li>
+          <li>
+            <span>About</span>
+          </li>
+        {/* </ul> */}
 
         {/* Authenticated User */}
         {user.user && (
@@ -42,12 +52,14 @@ export default function Navbar() {
           <ul>
             <li>
               <Link href="/sign-in">
-                <button>Login</button>
+                <button id="login">
+                  Login
+                </button>
               </Link>
             </li>
             <li>
               <Link href="/sign-up">
-                <button>Signup</button>
+                <button id="signup">Signup</button>
               </Link>
             </li>
           </ul>
