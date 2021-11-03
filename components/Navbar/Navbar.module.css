@@ -10,12 +10,14 @@
 
 .navbar ul {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 
 .navbar ul li {
   list-style: none;
-  background-color: 'red';
+  /* background-color: 'red'; */
 }
 
 .navbar ul li span{
@@ -24,11 +26,38 @@
   /* color:white */
 }
 
-#login{
-  border-width: 0;
+.signin_button{
+  /* background-color: tomato; */
+  color: #3751FF;
+  font-weight: 600;
+  border: 5px solid #3751FF;
+  padding:0.5rem 1.5rem;
+  border-radius: 1rem 0rem 0rem 1rem;
 }
 
-#signup{
+.signup_button{
+  font-weight: 600;
+  border: 5px solid #3751FF;
+  border-radius: 0rem 1rem 1rem 0rem;
   background-color: #3751FF;
-  color: 'tomato'
+  padding:0.5rem 1.25rem 0.5rem 0.5rem;
+  color: #fff;
+}
+
+.hamburger li{
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.show{
+  display: block;
+  visibility: show;
+}
+
+.hide{
+  visibility: hidden;
+  display: none;
 }
