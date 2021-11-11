@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <UserContext.Provider value={userData}>
-      <Navbar />
+      {/* <Navbar /> */}
       <Component {...pageProps} />
       <Footer/>
     </UserContext.Provider>

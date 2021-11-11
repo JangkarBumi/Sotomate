@@ -20,17 +20,19 @@ export default function Navbar() {
   return (
     <nav className={[styles.navbar]}>
 
-    <ul className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
+<div>
+      <Link href="/">
+        <h1>Sotomate</h1>
+      </Link>
 
-      <ul className={isOpen ? styles.show : styles.hide  }>
-        <Link href="/">
-          <h1>Sotomate</h1>
-        </Link>
+      <ul className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+</div>
 
+      <ul className={isOpen ? styles.show : styles.hide}>
         {/* <ul> */}
         <li>
           <span>Pricing</span>
@@ -66,9 +68,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link href="/sign-up">
-                <button className={styles.signup_button}>
-                  Signup
-                </button>
+                <button className={styles.signup_button}>Signup</button>
               </Link>
             </li>
           </ul>
