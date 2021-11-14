@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import '../styles/globals.css';
 import '../styles/reset.css'
+import Navbar1 from '@components/Navbar1/Navbar1';
 
 function MyApp({ Component, pageProps }) {
   const userData = useUserData();
@@ -28,8 +29,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <UserContext.Provider value={userData}>
       {/* <Navbar /> */}
-      <Component {...pageProps} />
-      <Footer/>
+      <Navbar1 />
+      {/* <Component {...pageProps} /> */}
+      {/* <Footer/> */}
     </UserContext.Provider>
   );
 }
