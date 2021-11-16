@@ -21,7 +21,7 @@ export default function Navbar() {
     <nav className={[styles.navbar]}>
 
 <div>
-      <Link href="/">
+      <Link href="/" className={styles.logo}>
         <h1>Sotomate</h1>
       </Link>
 
