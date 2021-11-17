@@ -61,9 +61,15 @@
 .hamburger{
   color: white;
   font-size: 2rem;
-  /* align-self: flex-end; */
   margin: auto;
-  /* background-color: white; */
+}
+
+.flex{
+  display: flex;
+}
+
+.links{
+  display: none;
 }
 
 @media screen and (min-width: 768px){
@@ -78,6 +84,10 @@
   .container ul{
     flex-direction: row;
   }
+
+  /* .links{
+    display: flex;
+  } */
 
   .hamburger{
     display: none;

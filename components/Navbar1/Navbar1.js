@@ -19,6 +19,7 @@ export default function Navbar() {
 
   const [isOpen, setIsOpen] = useState(false);
 
+
   return (
     <div className={styles.container}>
       <div className={styles.mobile}>
@@ -40,7 +41,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      <ul style={isOpen ? { display: 'flex' } : { display: 'none' }}>
+      <ul className={isOpen ? styles.flex: styles.links }>
         <li>
           <a href="">Home</a>
         </li>
@@ -51,7 +52,6 @@ export default function Navbar() {
           <a href="">Pricing</a>
         </li>
         <li>
-          {/* <a href=""></a> */}
           <Link href="/signup">
             <button className={styles.button}>Signup</button>
           </Link>
