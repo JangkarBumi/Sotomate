@@ -21,26 +21,26 @@ export default function Navbar() {
 
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles.mobile}>
         <Link href="/">
           <img className={styles.logo} src="/logo.svg" alt="logo" />
         </Link>
-        {isOpen ? (
-          <MdOutlineClose
-            className={styles.hamburger}
-            onClick={() => setIsOpen(!isOpen)}
-          />
-        ) : (
-          <GiHamburgerMenu
-            className={styles.hamburger}
-            onClick={() => setIsOpen(!isOpen)}
-          />
-        )}
+        <div>
+          {isOpen ? (
+            <MdOutlineClose
+              className={styles.hamburger}
+              onClick={() => setIsOpen(!isOpen)}
+            />
+          ) : (
+            <GiHamburgerMenu
+              className={styles.hamburger}
+              onClick={() => setIsOpen(!isOpen)}
+            />
+          )}
+        </div>
       </div>
 
-      <ul
-        style={isOpen ? { display :'flex'} : { display:'none' }}
-      >
+      <ul style={isOpen ? { display: 'flex' } : { display: 'none' }}>
         <li>
           <a href="">Home</a>
         </li>
