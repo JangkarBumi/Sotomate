@@ -5,12 +5,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: baseline;
 }
 
 .logo{
   cursor: pointer;
   user-select: none;
+  padding: 1rem 0rem 1rem 0rem;
 }
 
 .mobile{
@@ -26,15 +26,20 @@
 
 .container ul li {
   display: inline-block;
-  padding: 0px 20px;
   user-select: none;
 }
 
+.container ul li:last-child {
+  order: -1;
+}
+
 .container ul li a{
+  display: block;
   font-family: 'Arvo', serif;
   transition: all 0.3s ease 0s;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  padding: 1rem 0rem;
 }
 
 .container ul li a:hover{
@@ -51,7 +56,7 @@
   color: white;
   font-weight: 500;
   font-size: 1rem;
-  display: none;
+  width: 100%;
 }
 
 .button:hover{
@@ -75,19 +80,29 @@
 @media screen and (min-width: 768px){
   .container{
     flex-direction: row;
+      align-items: center;
   }
 
   .container ul, .button{
     display: flex;
+    align-items: center;
   }
 
   .container ul{
     flex-direction: row;
   }
 
-  /* .links{
+  .container ul li a{
+    padding: 1rem;
+  }
+
+.container ul li:last-child {
+  order: 0;
+}
+
+  .links{
     display: flex;
-  } */
+  }
 
   .hamburger{
     display: none;

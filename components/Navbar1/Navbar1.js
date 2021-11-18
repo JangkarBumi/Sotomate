@@ -51,7 +51,7 @@ export default function Navbar() {
         <li>
           <a href="">Pricing</a>
         </li>
-        <li>
+        <li className={styles.test}>
           <Link href="/signup">
             <button className={styles.button}>Signup</button>
           </Link>
