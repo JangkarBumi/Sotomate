@@ -3,6 +3,8 @@ import { auth } from '@lib/firebase';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useContext, useState } from 'react';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { MdOutlineClose } from 'react-icons/md';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -17,63 +19,67 @@ export default function Navbar() {
 
   const [isOpen, setIsOpen] = useState(false);
 
+
   return (
-    <nav className={[styles.navbar]}>
-
-    <ul className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-
-      <ul className={isOpen ? styles.show : styles.hide  }>
+    <div className={styles.container}>
+      <div className={styles.mobile}>
         <Link href="/">
-          <h1>Sotomate</h1>
+          <img className={styles.logo} src="/sotomate-logo.svg" alt="logo" />
         </Link>
+        <div>
+          {isOpen ? (
+            <MdOutlineClose
+              className={styles.hamburger}
+              onClick={() => setIsOpen(!isOpen)}
+            />
+          ) : (
+            <GiHamburgerMenu
+              className={styles.hamburger}
+              onClick={() => setIsOpen(!isOpen)}
+            />
+          )}
+        </div>
+      </div>
 
-        {/* <ul> */}
+      <ul className={isOpen ? styles.flex : styles.links}>
         <li>
-          <span>Pricing</span>
+          <a href="">Home</a>
         </li>
         <li>
-          <span>Features</span>
+          <a href="">Features</a>
         </li>
         <li>
-          <span>About</span>
+          <a href="">Pricing</a>
         </li>
-        {/* </ul> */}
 
         {/* Authenticated User */}
         {user.user && (
-          <ul>
+          <ul className={styles.cta_container}>
             <li>
-              <Link href="/dashboard">
-                <button>Dashboard</button>
-              </Link>
+              <Link href="/dashboard">Dashboard</Link>
             </li>
             <li>
-              <button onClick={signOut}> Logout</button>
+              <button className={styles.button} onClick={signOut}>
+                Logout
+              </button>
             </li>
           </ul>
         )}
+        
         {/* Guest */}
         {!user.user && (
-          <ul>
+          <ul className={styles.cta_container}>
             <li>
-              <Link href="/sign-in">
-                <button className={styles.signin_button}>Login</button>
-              </Link>
+              <Link href="/sign-in">Login</Link>
             </li>
-            <li>
+            <li className={styles.test}>
               <Link href="/sign-up">
-                <button className={styles.signup_button}>
-                  Signup
-                </button>
+                <button className={styles.button}>Signup</button>
               </Link>
             </li>
           </ul>
         )}
       </ul>
-    </nav>
+    </div>
   );
 }

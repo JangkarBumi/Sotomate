@@ -1,63 +1,117 @@
-.navbar {
-  /* background-color: tomato; */
-  /* width: 90vw; */
-  /* margin-left: 5vw; */
-  /* margin-right: 5vw; */
-  font-family: 'Arvo', serif;
-  padding:1rem 5vw 1rem 5vw;
-  box-shadow: 0 4px 4px -4px gray
-}
-
-.navbar ul {
+.container{
+  background-color: #1b1b1b;
+  padding: 1rem 2rem;
+  color:white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
 }
 
-.navbar ul li {
-  list-style: none;
-  /* background-color: 'red'; */
+.logo{
+  cursor: pointer;
+  user-select: none;
+  /* padding: 1rem 0rem 1rem 0rem; */
+  width: 10rem;
 }
 
-.navbar ul li span{
+.mobile{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.container ul {
+  flex-direction: column;
+}
+
+.container ul li {
+  display: inline-block;
+  user-select: none;
+}
+
+.container ul li:last-child {
+  order: -1;
+}
+
+.container ul li a{
   display: block;
-  font-weight: 600;
-  /* color:white */
+  font-family: 'Arvo', serif;
+  transition: all 0.3s ease 0s;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 1rem 0rem;
 }
 
-.signin_button{
-  /* background-color: tomato; */
-  color: #3751FF;
-  font-weight: 600;
-  border: 5px solid #3751FF;
-  padding:0.5rem 1.5rem;
-  border-radius: 1rem 0rem 0rem 1rem;
+.container ul li a:hover{
+  color:#0088a9
 }
 
-.signup_button{
-  font-weight: 600;
-  border: 5px solid #3751FF;
-  border-radius: 0rem 1rem 1rem 0rem;
-  background-color: #3751FF;
-  padding:0.5rem 1.25rem 0.5rem 0.5rem;
-  color: #fff;
+.button{
+  padding: 9px 25px;
+  background-color: rgba(0,136,169,1);
+  border:none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  width: 100%;
 }
 
-.hamburger li{
-  width: 35px;
-  height: 5px;
-  background-color: #333;
-  margin: 6px 0;
-  transition: 0.4s;
+.button:hover{
+  background-color: rgba(0,136,169,0.8);
 }
 
-.show{
-  display: block;
-  visibility: show;
+.hamburger{
+  color: white;
+  font-size: 2rem;
+  margin: auto;
 }
 
-.hide{
-  visibility: hidden;
+.flex{
+  display: flex;
+
+}
+
+.links{
   display: none;
+}
+
+.cta_container{
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (min-width: 768px){
+  .container{
+    flex-direction: row;
+      align-items: center;
+  }
+
+  .container ul, .button{
+    display: flex;
+    align-items: center;
+  }
+
+  .container ul{
+    flex-direction: row;
+  }
+
+  .container ul li a{
+    padding: 1rem;
+  }
+
+.container ul li:last-child {
+  order: 0;
+}
+
+  .links{
+    display: flex;
+  }
+
+  .hamburger{
+    display: none;
+  }
 }
