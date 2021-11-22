@@ -65,7 +65,7 @@ export default function Navbar() {
             </li>
           </ul>
         )}
-        
+
         {/* Guest */}
         {!user.user && (
           <ul className={styles.cta_container}>

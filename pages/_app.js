@@ -1,11 +1,11 @@
-import Footer from '@components/Footer/Footer';
-import Navbar from '@components/Navbar/Navbar';
+import Footer from '@components/Footer';
+import Navbar from '@components/Navbar';
 import { UserContext } from '@lib/context';
 import { useUserData } from '@lib/hooks';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import '../styles/globals.css';
-import '../styles/reset.css'
+import '../styles/reset.css';
 
 
 function MyApp({ Component, pageProps }) {
